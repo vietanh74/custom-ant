@@ -1,6 +1,6 @@
 import { Button } from 'ant-design-vue';
 
-import Foo from '@/components/Foo.vue';
+import Foo from './components/Foo.vue';
 
 export { Button, Foo };
 

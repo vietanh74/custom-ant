@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const props = defineProps<{
+  msg: string,
+}>();
+
 const counter = ref<number>(2);
 
 const up = () => {
@@ -12,6 +16,7 @@ const up = () => {
   <div class="container">
     <h4 @click="up()">Hello</h4>
     <h5>{{ counter }}</h5>
+    <h3>{{ props.msg }}</h3>
   </div>
 </template>
 

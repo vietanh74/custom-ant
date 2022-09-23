@@ -11,11 +11,17 @@ import { BUILD_FOLDER } from './vars';
 
 export default [
   {
-    input: 'src/entries/index.ts',
-    output: {
-      dir: BUILD_FOLDER,
-      format: 'es',
-    },
+    input: 'src/index.ts',
+    output: [
+      {
+        dir: BUILD_FOLDER,
+        format: 'es',
+      },
+      {
+        dir: `${BUILD_FOLDER}/amd`,
+        format: 'amd',
+      },
+    ],
     plugins: [
       vue(),
       typescript(),
