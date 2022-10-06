@@ -6,6 +6,7 @@ import copy from 'rollup-plugin-copy';
 import { terser } from 'rollup-plugin-terser';
 import alias from '@rollup/plugin-alias';
 import del from 'rollup-plugin-delete';
+import replace from '@rollup/plugin-replace';
 
 import { BUILD_FOLDER } from './vars';
 
@@ -40,6 +41,12 @@ export default [
         ]
       }),
       del({ targets: `${BUILD_FOLDER}/*` }),
+      replace({
+        preventAssignment: true,
+        'process.env.NODE_ENV': JSON.stringify('production'),
+        __VUE_OPTIONS_API__: JSON.stringify(true),
+        __VUE_PROD_DEVTOOLS__: JSON.stringify(false),
+      }),
     ]
   }
 ]
